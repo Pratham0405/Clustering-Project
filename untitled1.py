@@ -10,7 +10,7 @@ import joblib
 import numpy as np
 
 # Load the trained KNN model
-model = joblib.load('C:/Users/Sooraj/Downloads/best_knn_model.pkl')  # Update with your model file path
+model = joblib.load('best_knn_model.pkl')  # Update with your model file path
 
 # Define the Streamlit app
 def main():
