@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 import joblib
 import numpy as np
@@ -29,15 +27,16 @@ def main():
     living_with_label = {'Alone': 0, 'Partner': 1}[living_with]
     is_parent_label = int(is_parent)
     
-    # Make prediction based on user inputs
-    features = np.array([[income, education_label, expenses, purchases, age, customer_for, 0, 0, living_with_label, 0, is_parent_label]])  # Assuming 'Children' and 'Clusters' are not used
-    prediction = model.predict(features)
-    
-    # Display prediction
-    st.subheader('Prediction')
-    st.write(f'The predicted customer segment is: {prediction[0]}')
+    # Prediction button
+    if st.button('Predict'):
+        # Make prediction based on user inputs
+        features = np.array([[income, education_label, expenses, purchases, age, customer_for, 0, 0, living_with_label, 0, is_parent_label]])  # Assuming 'Children' and 'Clusters' are not used
+        prediction = model.predict(features)
+        
+        # Display prediction
+        st.subheader('Prediction')
+        st.write(f'The predicted customer segment is: {prediction[0]}')
 
 # Run the Streamlit app
 if __name__ == '__main__':
     main()
-
